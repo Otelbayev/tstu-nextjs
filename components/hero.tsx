@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import DesktopSidebar from "./desktop-sidebar";
 
 const Hero = () => {
   return (
@@ -14,14 +15,23 @@ const Hero = () => {
         priority
         quality={75}
         sizes="100vw"
-        className="object-cover"
+        className="object-cover hidden md:block"
+      />
+      <Image
+        src="/icons/hero/2.png"
+        alt="Hero background mobile"
+        width={780}
+        height={1308}
+        priority
+        className="absolute object-cover md:hidden w-full pt-15  bg-[#0061A5]"
       />
 
-      <div className="absolute inset-0 md:hidden bg-gradient-to-b from-[#0061A5] to-[#004B7D] opacity-50"></div>
-
+      <div className="relative hidden lg:flex z-50 mx-auto px-4 translate-y-6 lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
+        <DesktopSidebar />
+      </div>
       <div className="relative z-10 flex items-center justify-center h-full text-white">
         <h1
-          className="text-5xl md:text-7xl xl:text-8xl text-center px-4"
+          className="text-6xl md:text-7xl xl:text-8xl text-center px-4"
           style={{
             fontFamily: "var(--font-canela), serif",
           }}

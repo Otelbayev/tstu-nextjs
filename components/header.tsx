@@ -60,7 +60,7 @@ const Header = () => {
               </Link>
             ))}
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {headerLinks.map((i, index) =>
               i.icon ? (
                 <Link href={i.href} key={index}>
