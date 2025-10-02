@@ -7,20 +7,20 @@ import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 const DesktopSidebar = () => {
-  const { get, loading } = useApi();
+  const { get } = useApi();
   const [topMenu, setTopMenu] = useState<MenuItem[]>([]);
   const [data, setData] = useState<MenuItem[]>([]);
   const [hover, setHover] = useState<MenuItem | null>(null);
 
-  const getData = async () => {
-    const res = await get<MenuItem[]>("/menu/sitegetallmenu");
-    if (res) {
-      setTopMenu(res.filter((item) => item.top_menu));
-      setData(res.filter((item) => !item.top_menu));
-    }
-  };
-
   useEffect(() => {
+    const getData = async () => {
+      const res = await get<MenuItem[]>("/menu/sitegetallmenu");
+      if (res) {
+        setTopMenu(res.filter((item) => item.top_menu));
+        setData(res.filter((item) => !item.top_menu));
+      }
+    };
+
     getData();
   }, []);
 

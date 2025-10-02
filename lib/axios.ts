@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { useState } from "react";
 
 const api = axios.create({
@@ -11,7 +11,7 @@ const api = axios.create({
 export const useApi = () => {
   const [loading, setLoading] = useState(false);
 
-  const get = async <T = any>(url: string, config = {}) => {
+  const get = async <T>(url: string, config?: AxiosRequestConfig) => {
     setLoading(true);
     try {
       const res = await api.get<T>(url, config);
@@ -21,7 +21,11 @@ export const useApi = () => {
     }
   };
 
-  const post = async <T = any>(url: string, data?: any, config = {}) => {
+  const post = async <T, D = unknown>(
+    url: string,
+    data: D,
+    config?: AxiosRequestConfig
+  ) => {
     setLoading(true);
     try {
       const res = await api.post<T>(url, data, config);
@@ -31,7 +35,11 @@ export const useApi = () => {
     }
   };
 
-  const put = async <T = any>(url: string, data?: any, config = {}) => {
+  const put = async <T, D = unknown>(
+    url: string,
+    data: D,
+    config?: AxiosRequestConfig
+  ) => {
     setLoading(true);
     try {
       const res = await api.put<T>(url, data, config);
