@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section
       className="relative w-full"
-      style={{ height: "calc(100dvh - 56px)" }}
+      style={{ height: "calc(100vh - 56px)" }}
     >
       <Image
         src="/icons/hero/1.png"
@@ -23,7 +23,7 @@ const Hero = () => {
         width={780}
         height={1308}
         priority
-        className="absolute object-cover md:hidden w-full pt-15  bg-[#0061A5]"
+        className="absolute md:hidden w-full pt-5  bg-[#0061A5]"
       />
 
       <div className="relative hidden lg:flex z-50 mx-auto px-4 translate-y-6 lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
